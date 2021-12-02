@@ -1,0 +1,35 @@
+body {
+  background: #f8f6fc !important;
+  font-family: helvetica;
+}
+h1 {
+  margin: 20px 0 10px;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 48px;
+  color: #272142;
+}
+.row {
+  text-align: left;
+}
+ul li {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  color: #a8a6b4;
+}
+p {
+  padding-top: 50px;
+}
+a {
+  color: #895df1;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #895df1;
+}
