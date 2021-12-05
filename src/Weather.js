@@ -2,17 +2,21 @@ import React from "react";
 import "./Weather.css";
 import bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
+import { Container } from "react-bootstrap";
+import { Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 export default function Weather() {
   let weatherData = {
     city: "New York",
     temperature: "20",
-    date: "Tuesday 10:00",
+    date: "Tuesday 10:00 ",
     description: "Cloudy",
     imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     humidity: 80,
     wind: 10,
   };
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
   return (
     <div className="container">
@@ -47,15 +51,15 @@ export default function Weather() {
             <ul>
               <li className="date">{weatherData.date}</li>
               <span id="am-pm">AM</span>,
-              <span className="description">{weatherData.description}</span>
+              <span className="description"> {weatherData.description}</span>
               <li>
                 Humidity:
                 <span className="humidity-number">
-                  <span>{weatherData.humidity}</span>%
+                  <span>{weatherData.humidity}</span>%,
                 </span>
                 Wind:
                 <span className="wind-number">
-                  <span>{weatherData.wind} </span>mph
+                  <span>{weatherData.wind}</span>mph
                 </span>
               </li>
             </ul>
@@ -77,6 +81,25 @@ export default function Weather() {
               </a>
             </div>
           </div>
+        </div>
+        <div className="col">
+          <p>
+            <span className="days">
+              <Container>
+                <Row>
+                  {days.map(function (value) {
+                    return (
+                      <Col>
+                        <p>
+                          <span>{value}</span>
+                        </p>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </Container>
+            </span>
+          </p>
         </div>
       </div>
     </div>
