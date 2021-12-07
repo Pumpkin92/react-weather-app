@@ -6,6 +6,7 @@ import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
@@ -16,7 +17,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
-      date: "Tuesday 10:00 ",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       humidity: response.data.main.humidity,
@@ -56,8 +57,11 @@ export default function Weather(props) {
             <div className="col-6 weather-description-box">
               <h1>{weatherData.city}</h1>
               <ul>
-                <li className="date">{weatherData.date}</li>
-                <span id="am-pm"> AM</span>,
+                <li>
+                  {" "}
+                  <FormattedDate date={weatherData.date} />{" "}
+                </li>
+
                 <span className="description"> {weatherData.description}</span>
                 <li>
                   Humidity:
