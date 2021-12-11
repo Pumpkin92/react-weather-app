@@ -6,12 +6,13 @@ import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
+import WeatherForecast from "./WeatherForecast";
 
 import WeatherInfo from "./weatherInfo";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
   let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
@@ -74,42 +75,8 @@ export default function Weather(props) {
           </div>
 
           <WeatherInfo weatherData={weatherData} />
+          <WeatherForecast />
 
-          <div className="col">
-            <p>
-              <span>
-                <div>
-                  <Container className="days">
-                    <Row>
-                      {days.map(function (value) {
-                        return (
-                          <Col>
-                            <p>
-                              <span>{value}</span>
-                            </p>
-                            <br />
-                            <div className="icon">
-                              <ReactAnimatedWeather
-                                icon={"CLEAR_DAY"}
-                                color={"pink"}
-                                size={51}
-                                animate={true}
-                              />
-                            </div>
-                            <br />
-                            <div className="weekly-temps">
-                              <span className="max-temp">5°</span>
-                              <span className="min-temp">3°</span>
-                            </div>
-                          </Col>
-                        );
-                      })}
-                    </Row>
-                  </Container>
-                </div>
-              </span>
-            </p>
-          </div>
           <footer>
             This project was coded by Lucy Shaw and is{" "}
             <a

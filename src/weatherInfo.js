@@ -29,7 +29,11 @@ export default function WeatherInfo(props) {
 
       <div className="col-6">
         <div className="temp">
-          <WeatherIcon code={props.weatherData.icon} />
+          <WeatherIcon
+            size={60}
+            code={props.weatherData.icon}
+            color={"#885DF1"}
+          />
 
           <WeatherTempUnit celsius={props.weatherData.temperature} />
         </div>
