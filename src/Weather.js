@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Container } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import ReactAnimatedWeather from "react-animated-weather";
+
 import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
 
@@ -83,6 +80,7 @@ export default function Weather(props) {
             <a
               href="https://github.com/Pumpkin92/react-weather-app"
               target="_blank"
+              rel="noreferrer"
             >
               open-sourced on GitHub
             </a>
