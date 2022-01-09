@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
-
 import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
-
 import WeatherInfo from "./weatherInfo";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
-
   let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
@@ -27,7 +24,6 @@ export default function Weather(props) {
   }
   function search() {
     const apiKey = "a2e69ade2d5f80fe8dd4f0ed09576a2a";
-
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
@@ -40,6 +36,21 @@ export default function Weather(props) {
 
   function handleChange(event) {
     setCity(event.target.value);
+  }
+
+  function retrievePosition(position) {
+    let apiKey = "a2e69ade2d5f80fe8dd4f0ed09576a2a";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(handleResponse);
+  }
+  function getPosition() {
+    navigator.geolocation.getCurrentPosition(retrievePosition);
+  }
+  function handlePosition(event) {
+    event.preventDefault();
+    getPosition();
   }
 
   if (weatherData.ready) {
@@ -63,7 +74,7 @@ export default function Weather(props) {
                 <div className="col-12 col-md-3 text-center">
                   <input type="submit" className="search-btn" value="Search" />
                   <span>
-                    <button className="location-btn" id="location-btn">
+                    <button className="location-btn" onClick={handlePosition}>
                       <span>📍</span>
                     </button>
                   </span>
@@ -71,20 +82,8 @@ export default function Weather(props) {
               </div>
             </form>
           </div>
-
           <WeatherInfo weatherData={weatherData} />
           <WeatherForecast coordinates={weatherData.coordinates} />
-
-          <footer>
-            This project was coded by Lucy Shaw and is{" "}
-            <a
-              href="https://github.com/Pumpkin92/react-weather-app"
-              target="_blank"
-              rel="noreferrer"
-            >
-              open-sourced on GitHub
-            </a>
-          </footer>
         </div>
       </div>
     );
