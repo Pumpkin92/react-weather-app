@@ -55,36 +55,34 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="container">
-        <div className="weather-wrapping">
-          <div className="search-bar">
-            <form id="search-field" onSubmit={handleSubmit}>
-              <div className="row">
-                <div className="col-12 col-md-9">
-                  <input
-                    type="text"
-                    id="type-here"
-                    className="search"
-                    placeholder="Search for your city"
-                    autoFocus="on"
-                    autoComplete="off"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="col-12 col-md-3 text-center">
-                  <input type="submit" className="search-btn" value="Search" />
-                  <span>
-                    <button className="location-btn" onClick={handlePosition}>
-                      <span>📍</span>
-                    </button>
-                  </span>
-                </div>
+      <div>
+        <div className="search-bar">
+          <form id="search-field" onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-12 col-md-9">
+                <input
+                  type="text"
+                  id="type-here"
+                  className="search"
+                  placeholder="Search for your city"
+                  autoFocus="on"
+                  autoComplete="off"
+                  onChange={handleChange}
+                />
               </div>
-            </form>
-          </div>
-          <WeatherInfo weatherData={weatherData} />
-          <WeatherForecast coordinates={weatherData.coordinates} />
+              <div className="col-12 col-md-3 text-center">
+                <input type="submit" className="search-btn" value="Search" />
+                <span>
+                  <button className="location-btn" onClick={handlePosition}>
+                    <span>📍</span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </form>
         </div>
+        <WeatherInfo weatherData={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

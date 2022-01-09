@@ -8,18 +8,21 @@ import "./index.css";
 function App() {
   return (
     <div className="App">
-      <Weather defaultCity="Manchester" />
-
-      <footer>
-        This project was coded by Lucy Shaw and is{" "}
-        <a
-          href="https://github.com/Pumpkin92/react-weather-app"
-          target="_blank"
-          rel="noreferrer"
-        >
-          open-sourced on GitHub
-        </a>
-      </footer>
+      <div className="container">
+        <div className="weather-wrapping">
+          <Weather defaultCity="Manchester" />
+          <footer>
+            This project was coded by Lucy Shaw and is{" "}
+            <a
+              href="https://github.com/Pumpkin92/react-weather-app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              open-sourced on GitHub
+            </a>
+          </footer>
+        </div>
+      </div>
     </div>
   );
 }
