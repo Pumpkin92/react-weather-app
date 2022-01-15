@@ -12,7 +12,11 @@ function App() {
         <div className="weather-wrapping">
           <Weather defaultCity="Manchester" />
           <footer>
-            This project was coded by Lucy Shaw and is{" "}
+            This project was coded by{" "}
+            <a href="https://lucyshaw.me" target="_blank" rel="noreferrer">
+              Lucy Shaw
+            </a>{" "}
+            and is{" "}
             <a
               href="https://github.com/Pumpkin92/react-weather-app"
               target="_blank"

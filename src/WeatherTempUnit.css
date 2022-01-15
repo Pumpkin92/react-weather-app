@@ -1,0 +1,18 @@
+@media (max-width: 576px) {
+  .temperatureSpan {
+    font-size: 40px;
+  }
+  .tempNumber {
+    line-height: 2;
+    position: relative;
+    bottom: 20px;
+  }
+  .farenheight,
+  .celsius,
+  .divider {
+    font-size: 20px;
+  }
+  .temp {
+    text-align: left;
+  }
+}
